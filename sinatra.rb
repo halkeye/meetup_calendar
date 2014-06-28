@@ -50,7 +50,7 @@ end
 get '/auth/meetup/callback' do
   # probably you will need to create a user in the database too...
   session[:uid] = env['omniauth.auth']['uid']
-  @user = User.find_or_initialize_by(uid: env['omniauth.auth']['uid'])
+  @user = User.find_or_initialize_by(uid: env['omniauth.auth']['uid'].to_i)
   @user.guid = SecureRandom.uuid.to_s #unless @user.guid
   [:token, :refresh_token, :expires_at, :expires].each do |field|
     @user.send("#{field.to_s}=", request.env['omniauth.auth']['credentials'][field.to_s]);
@@ -72,7 +72,7 @@ get '/logout' do
 end
 
 get '/' do
-  @user = User.find_by(uid: current_user)
+  @user = User.find_by(uid: current_user.to_i)
   redirect '/auth/meetup' unless @user
   "Your calendar link: <a href=\"/calendar/#{@user.guid}.ics\">#{base_url}/calendar/#{@user.guid}.ics</a>"
 end
