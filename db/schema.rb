@@ -11,9 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140628035333) do
+ActiveRecord::Schema.define(version: 20140628000000) do
 
   create_table "users", force: true do |t|
+    t.integer  "uid",           null: false
     t.string   "guid",          null: false
     t.string   "token",         null: false
     t.string   "refresh_token", null: false
@@ -22,6 +23,6 @@ ActiveRecord::Schema.define(version: 20140628035333) do
   end
 
   add_index "users", ["guid"], name: "index_users_on_guid", unique: true
-  add_index "users", ["id"], name: "index_users_on_id", unique: true
+  add_index "users", ["uid"], name: "index_users_on_uid", unique: true
 
 end
