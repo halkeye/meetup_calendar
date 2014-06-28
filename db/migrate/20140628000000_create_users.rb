@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration
   def change
      create_table :users do |t|
        t.string :guid, :null => false
-       t.string :uid, :null => false
+       t.integer :uid, :null => false
        t.string :token, :null => false
        t.string :refresh_token, :null => false
        t.timestamp :expires_at, :null => false
