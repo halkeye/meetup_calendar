@@ -52,9 +52,10 @@ get '/auth/meetup/callback' do
   session[:uid] = env['omniauth.auth']['uid']
   @user = User.find_or_initialize_by(uid: env['omniauth.auth']['uid'].to_i)
   @user.guid = SecureRandom.uuid.to_s #unless @user.guid
-  [:token, :refresh_token, :expires_at, :expires].each do |field|
+  [:token, :refresh_token, :expires].each do |field|
     @user.send("#{field.to_s}=", request.env['omniauth.auth']['credentials'][field.to_s]);
   end
+  @user.expires_at = Time.at(request.env['omniauth.auth']['credentials']['expires_at']);
   @user.save
 
   # this is the main endpoint to your application
