@@ -16,6 +16,7 @@ end
 group :test do
   gem 'ci_reporter_minitest', '~> 1.0.0'
   gem 'simplecov', :require => false
+  gem 'simplecov-rcov', :require => false
 
   gem 'minitest'
   gem 'rack-test'
