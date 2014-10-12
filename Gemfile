@@ -14,6 +14,7 @@ group :production do
 end
 
 group :test do
+  gem 'ci_reporter_minitest', '~> 1.0.0'
   gem 'minitest'
   gem 'rack-test'
 end
