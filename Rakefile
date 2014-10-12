@@ -1,6 +1,7 @@
 require './sinatra'
 require 'sinatra/activerecord/rake'
 require 'rake/testtask'
+require 'rake/notes/rake_task'
 
 if ENV['GENERATE_REPORTS'] == 'true'
   require 'ci/reporter/rake/minitest'

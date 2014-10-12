@@ -27,4 +27,6 @@ group :development do
   gem 'guard'
   gem 'guard-bundler'
   gem 'guard-rack'
+
+  gem 'rake-notes'
 end
