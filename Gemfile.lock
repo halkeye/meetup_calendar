@@ -35,6 +35,7 @@ GEM
       ci_reporter (~> 2.0)
       minitest (~> 5.0)
     coderay (1.1.0)
+    docile (1.1.5)
     erubis (2.7.0)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
@@ -104,6 +105,11 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
+    simplecov (0.9.1)
+      docile (~> 1.1.0)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.8.0)
+    simplecov-html (0.8.0)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -140,6 +146,7 @@ DEPENDENCIES
   rMeetup!
   rack-test
   rake
+  simplecov
   sinatra
   sinatra-activerecord
   sqlite3
