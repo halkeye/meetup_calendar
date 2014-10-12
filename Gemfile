@@ -13,6 +13,11 @@ group :production do
   gem 'pg'
 end
 
+group :test do
+  gem 'minitest'
+  gem 'rack-test'
+end
+
 group :development do
   gem 'better_errors'
   gem 'sqlite3'

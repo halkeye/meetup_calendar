@@ -74,7 +74,7 @@ end
 
 get '/' do
   @user = User.find_by(uid: current_user.to_i)
-  redirect '/auth/meetup' unless @user
+  return redirect '/auth/meetup' unless @user
   "Your calendar link: <a href=\"/calendar/#{@user.guid}.ics\">#{base_url}/calendar/#{@user.guid}.ics</a>"
 end
 
